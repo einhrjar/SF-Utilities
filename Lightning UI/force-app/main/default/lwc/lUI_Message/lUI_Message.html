@@ -1,0 +1,43 @@
+<template>
+    <template if:true={isDisplayed}>
+        <div class={topLevelClassName}>
+            <div class=luiModalBody>
+
+                <template if:true={hasClose}>
+                    <div class=luiModalCloseButton>
+                        <lightning-icon size=small class=svgWhite variant=inverse icon-name=utility:close onclick={onClosePage}></lightning-icon>
+                    </div>
+                </template>
+
+                <div class=luiModalMessageHeader>
+                    <template if:true={hasIcon}>
+                        <lightning-icon size=small icon-name={messageIconName}></lightning-icon>
+                    </template>
+                    <span>{messageHeader}</span>
+                </div>
+                <div class=luiModalMessageBody>{messageBody}</div>
+                <div class=luiModalControls>
+                    <template if:true={isYesNo}>
+                        <lightning-button class=buttonPositive variant="brand" label=Yes name=yes onclick={onButtonClick}></lightning-button>
+                        <div class="flexer"></div>
+                        <lightning-button class=buttonNegative label=No name=no onclick={onButtonClick}></lightning-button>
+                    </template>
+
+                    <template if:true={isClose}>
+                        <lightning-button class=buttonNegative label=Close name=close onclick={onButtonClick}></lightning-button>
+                    </template>
+
+                    <template if:true={isSimple}>
+                        <lightning-button class=buttonPositive variant="brand" label=Ok name=ok onclick={onButtonClick}></lightning-button>
+                    </template>
+
+                    <template if:true={isCustom}>
+                        <div class="luiControlsCustom">
+                            
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <template if:true={show}>
+        <div class=luiLoaderBackdrop>
+            <div class=luiLoaderModal>
+                <lightning-spinner variant=brand></lightning-spinner>
+                <template if:true={loadText}>
+                    <div class=luiLoaderMessage>{loadText}</div>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

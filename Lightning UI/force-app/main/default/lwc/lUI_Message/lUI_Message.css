@@ -1,0 +1,150 @@
+@keyframes puff-in-center {
+    0% {
+        transform: scale(2);
+        filter: blur(4px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes puff-out-center {
+    0% {
+        transform: scale(1);
+        filter: blur(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        filter: blur(4px);
+        opacity: 0;
+    }
+}
+
+.luiModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 400;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    animation: puff-in-center 0.25s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+.luiModalBackdrop.close {
+    animation: puff-out-center 0.3s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+.luiModalBackdrop .luiModalBody {
+    min-width: 200px;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    position: absolute;
+}
+.luiModalBackdrop .luiModalBody .luiModalCloseButton {
+    position: absolute;
+    right: 0;
+    top: -30px;
+    cursor: pointer;
+}
+.luiModalBackdrop .luiModalBody .luiModalMessageHeader {
+    font-size: 1.3em;
+    font-weight: 600;
+    display: flex;
+}
+.luiModalBackdrop .luiModalBody .luiModalMessageHeader .slds-icon_container {
+    margin-right: 10px;
+}
+.luiModalBackdrop .luiModalBody .luiModalMessageHeader > span {
+    flex: 1;
+}
+.luiModalBackdrop .luiModalBody .luiModalMessageBody {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 15px 0;
+}
+.luiModalBackdrop .luiModalBody .luiModalControls {
+    display: flex;
+    text-align: center;
+}
+.luiModalBackdrop .luiModalBody .luiModalControls .slds-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    background: transparent;
+    background-clip: border-box;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    line-height: 1.875rem;
+    text-decoration: none;
+    color: rgb(0, 112, 210);
+    white-space: normal;
+    user-select: none;
+}
+
+.luiModalBackdrop .luiModalBody .luiModalControls .buttonPositive .slds-button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    border: 1px solid rgb(221, 219, 218);
+    transition: border .15s linear;
+    background-color: rgb(0, 112, 210);
+    border-color: rgb(0, 112, 210);
+    color: rgb(255, 255, 255);
+}
+
+.flexer {
+    flex: 1;
+}
+
+
+
+
+/** MOBILE **/
+.luiModalBackdrop.mobile {
+    animation: puff-in-center 0.3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+.luiModalBackdrop.mobile.close {
+    animation: puff-out-center 0.3s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+.luiModalBackdrop.mobile .luiModalBody .luiModalMessageHeader {
+    display: block;
+    text-align: center;
+}
+.luiModalBackdrop.mobile .luiModalBody .luiModalCloseButton {
+    right: -3px;
+    top: -30px;
+}
+.luiModalBackdrop.mobile .luiModalBody .luiModalCloseButton .slds-icon {
+    fill: gainsboro;
+}
+.luiModalBackdrop.mobile .luiModalMessageHeader .slds-icon_container {
+    width: calc(100% - 40px);
+    height: 100px;
+    margin-bottom: 30px
+}
+.luiModalBackdrop.mobile .luiModalMessageHeader .slds-icon_container .slds-icon.slds-icon-text-default.slds-icon_small {
+    width: 100%;
+    height: 100%;
+}
+.luiModalBackdrop.mobile .luiModalBody {
+    top: 40px;
+    left: 40px;
+    bottom: 90px;
+    right: 40px;
+    transform: none;
+}
+
+.luiModalBackdrop.mobile .luiModalBody .luiModalControls {
+    position: absolute;
+    width: calc(100% - 40px);
+    bottom: 40px;
+}
